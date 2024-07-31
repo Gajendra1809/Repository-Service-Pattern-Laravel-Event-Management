@@ -76,14 +76,26 @@ class TicketController extends Controller
     {
         try {
             
-            $ticket = $this->ticketService->create($request);
-            return $this->successResponse($ticket, 'Ticket booked successfully', 201);
+            return $this->ticketService->create($request);
 
         } catch (\Exception $e) {
             return $this->errorResponse($e->getMessage());
         }
     }
 
+    public function paymentCallback(Request $request)
+    {
+
+        try {
+
+            return $this->ticketService->paymentCallback($request);
+
+        } catch (\Exception $e) {
+            return $this->errorResponse($e->getMessage());
+        }
+
+    }
+    
     /**
      * Display the specified resource.
      */

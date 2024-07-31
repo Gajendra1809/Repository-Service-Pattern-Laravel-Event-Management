@@ -19,4 +19,8 @@ class TicketRepository extends BaseRepository
         return $this->model->where('user_id', $id)->with('event')->get();
     }
 
+    public function getTicketByRazorpayId($id){
+        return $this->model->where('razorpay_order_id', $id)->first();
+    }
+
 }
